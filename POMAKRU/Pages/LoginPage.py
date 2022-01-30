@@ -59,7 +59,7 @@ class LoginPage(BasePage):
         self.driver.get(TestData.YOPMAIL_URL)
         self.do_send_keys(self.YOP_EMAIL_FIELD,email)
         self.do_click(self.YOP_SEND_BTN)
-        self.driver.switch_to.frame(self.driver.YOP_FRAME)
+        self.driver.switch_to.frame(self.is_visible(self.YOP_FRAME))
         self.do_click(self.YOP_MAGICLINK_BTN)
         time.sleep(2)
         self.driver.close()
