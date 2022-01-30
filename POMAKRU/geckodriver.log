@@ -1,0 +1,43 @@
+1643307379575	geckodriver	INFO	Listening on 127.0.0.1:52847
+1643307382634	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\chada\\AppData\\Local\\Temp\\rust_mozprofileEPaBmu"
+1643309961896	geckodriver	INFO	Listening on 127.0.0.1:61111
+1643309965010	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\chada\\AppData\\Local\\Temp\\rust_mozprofilee9UxKO"
+1643309982382	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\chada\\AppData\\Local\\Temp\\rust_mozprofilee9UxKO\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1643310020933	Marionette	INFO	Listening on port 61120
+1643310023179	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://bscdev.akru.co/static/js/2.ed045bea.chunk.js, line 1: Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+InvalidResponse@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:4118640
+s.prototype.send/i.onreadystatechange@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:4184436
+t.prototype.dispatchEvent@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:1201199
+n.prototype._setReadyState@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:2840855
+n.prototype._onHttpRequestError@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:2844518
+n.prototype._sendHxxpRequest/<@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:2842020
+u.prototype.emit@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:454997
+h.prototype._onFinish/<@https://bscdev.akru.co/static/js/2.ed045bea.chunk.js:1:2848922
+
+[Child 13012, MediaDecoderStateMachine #1] WARNING: 1dbf8180 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:367
+1643310106079	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:239:19
+TimedPromise@chrome://remote/content/marionette/sync.js:224:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+1643310106918	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:239:19
+TimedPromise@chrome://remote/content/marionette/sync.js:224:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+[Child 13012, MediaDecoderStateMachine #1] WARNING: 1d932f00 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:367
+1643310119606	Marionette	INFO	Stopped listening on port 61120
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+1643351818491	geckodriver	INFO	Listening on 127.0.0.1:64637
+1643351821994	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64638" "-no-remote" "-profile" "C:\\Users\\chada\\AppData\\Local\\Temp\\rust_mozprofileU7Q5Ko"
+1643351842867	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\chada\\AppData\\Local\\Temp\\rust_mozprofileU7Q5Ko\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:64638/devtools/browser/509325b3-8d66-4054-b04f-12bcf038f514
+1643351901827	Marionette	INFO	Listening on port 64645
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
