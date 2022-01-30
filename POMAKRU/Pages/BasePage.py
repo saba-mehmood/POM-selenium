@@ -24,3 +24,8 @@ class BasePage:
     def do_send_keys(self,by_locator,text):
         WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
+   
+   """method for locating for  elements"""
+    def is_visible(self,by_locator):
+       element= WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(by_locator)) 
+       return element
