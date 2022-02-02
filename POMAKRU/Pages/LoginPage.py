@@ -1,8 +1,13 @@
 import time
 from POMAKRU.Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
-
 from POMAKRU.Config.config import TestData
+from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from POMAKRU.Pages.YopMailPage import YopmailPage
+from POMAKRU.Tests.test_LoginPage import TestLogin
 
 class LoginPage(BasePage):
 
@@ -14,6 +19,8 @@ class LoginPage(BasePage):
     WALLET_BOX=(By.CLASS_NAME,'donwload-btn')
     EMAIL=(By.ID,'navbar-magic-email')
     SEND_BTN=(By.XPATH,'//*[@id="navbar-magic-next"]')
+    LOGIN_ALERT=(By.CLASS_NAME,'Toastify__toast-body')
+
     
 
     """CREATING LOCATORS OF YOPMAIL"""
@@ -22,6 +29,7 @@ class LoginPage(BasePage):
     YOP_SEND_BTN=(By.XPATH,'//*[@id="refreshbut"]/button/i')
     YOP_FRAME=(By.ID,'ifmail')
     YOP_MAGICLINK_BTN=(By.XPATH,'//*[@id="mail"]/div/table/tbody/tr/td/div[2]/div/div/div/div/div/div[4]')
+    YOP_MAGIC_LINK=(By.LINK_TEXT,'Click here')
 
     """CONSTRUCTOR"""
     def __init__(self, driver):
@@ -40,9 +48,6 @@ class LoginPage(BasePage):
         window_before = self.driver.window_handles[0]
 
 
-        """ RUNNING SCRIPT TO THE CURRENT WINDOW"""
-        self.driver.execute_script("window.open()")
-
         """ PERFORM ACTIONS ON ELEMENTS"""
         self.do_click(self.ACCEPT_COOKIES)
         self.do_click(self.LOGIN_BTN)
@@ -52,17 +57,9 @@ class LoginPage(BasePage):
         self.do_click(self.SEND_BTN)
         time.sleep(8)
 
-        ################ YOPMAIL WINDOW ############
-
-        """ ASSIGNING INDEX 1 TO YOPMAIL WINDOW"""
-        self.driver.switch_to.window(self.driver.window_handles[1])    
-        self.driver.get(TestData.YOPMAIL_URL)
-        self.do_send_keys(self.YOP_EMAIL_FIELD,email)
-        self.do_click(self.YOP_SEND_BTN)
-        self.driver.switch_to.frame(self.is_visible(self.YOP_FRAME))
-        self.do_click(self.YOP_MAGICLINK_BTN)
-        time.sleep(2)
-        self.driver.close()
+        """CALLING YOPMAILPAGE METHOD"""
+        self.yopmail=YopmailPage(self.driver)
+        self.yopmail.Yopmail(TestData.EMAIL)
 
         """ AFTER CLOSING WINDOW 1 YOPMAIL, NOW MAGIC LINK WILL BE OPEN ON INDEX 1"""
         self.driver.switch_to.window(self.driver.window_handles[1])
@@ -71,7 +68,21 @@ class LoginPage(BasePage):
 
         """ SWITCHING BACK TO WINDOW 0"""
         self.driver.switch_to.window(window_before)
-        time.sleep(12)
+        time.sleep(50)
+        try:
+            """PRINTING LOGIN ALERT MESSAGE"""
+            alert_msg = self.is_visible(self.LOGIN_ALERT).get_attribute("textContent")
+            print (alert_msg)
+        except NoAlertPresentException:
+            print("exception handled")
+            
+        print("Rest of the programm")
+
+
+
+
+    
+
 
 
 
