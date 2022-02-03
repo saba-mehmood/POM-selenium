@@ -14,6 +14,7 @@ class YopmailPage(BasePage):
     YOP_FRAME=(By.ID,'ifmail')
     YOP_MAGICLINK_BTN=(By.XPATH,'//*[@id="mail"]/div/table/tbody/tr/td/div[2]/div/div/div/div/div/div[4]')
     YOP_MAGIC_LINK=(By.LINK_TEXT,'Click here')
+    SIGNUP_LINK = (By.LINK_TEXT,'Continue Signup')
     
     """constructor"""
     def __init__(self,driver):
@@ -30,10 +31,27 @@ class YopmailPage(BasePage):
         self.do_send_keys(self.YOP_EMAIL_FIELD,email)
         self.do_click(self.YOP_SEND_BTN)
         self.driver.switch_to.frame(self.is_visible(self.YOP_FRAME))
+
         try:
-            self.do_click(self.YOP_MAGICLINK_BTN)
+            LOGIN_CLICK = self.is_visible(self.YOP_MAGICLINK_BTN)
+            LINK_CLICK = self.is_visible(self.YOP_MAGIC_LINK)
+            if LOGIN_CLICK.is_displayed() and LOGIN_CLICK.is_enabled():
+                LOGIN_CLICK.click()
+
+            elif LINK_CLICK.is_displayed():
+                LINK_CLICK.click()
+
+            else:
+                print("NO LINK AND BUTTON FOUND")        
         except:
-            self.do_click(self.YOP_MAGIC_LINK)   
+            SIGNUP_LINK_CLICK = self.is_visible(self.SIGNUP_LINK)
+            if SIGNUP_LINK_CLICK.is_displayed():
+                SIGNUP_LINK_CLICK.click()
+                print(self.driver.title)
+
+            else:  
+                print("NO LINK AND BUTTON FOUND")  
+              
         time.sleep(2)
         self.driver.close()
 
